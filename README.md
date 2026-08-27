@@ -49,6 +49,8 @@ the lab's acquisition server, so paths recorded in the analysis repo's `summaryI
 
 Both example sessions come from the **same animal**, `B00002213784`, on consecutive days.
 
+The raw bpod behavior .mat file is also included for each trial in the raw/ directory.
+
 ### The two sessions
 
 | | Dendrite example | Soma example |
@@ -60,7 +62,8 @@ Both example sessions come from the **same animal**, `B00002213784`, on consecut
 | Compartment / plane label | `L1_Dend` (layer 1 tuft dendrites) | `L5_Soma` (layer 5 somata) |
 | Session index | 0 | 0 |
 | Example ROI | 4 | 33 |
-| Example trials | 21 (correct-left), 22 (correct-right) | 270 (correct-right), 271 (correct-left) |
+| Example trials (0-indexed) | 21 (correct-left), 22 (correct-right) | 270 (correct-right), 271 (correct-left) |
+| Example trials (File #) | 22 (correct-left), 23 (correct-right) | 271 (correct-right), 272 (correct-left) |
 | Frame size | 512 × 512 px | 256 × 256 px |
 | Pixel size | 0.4104 µm/px (≈ 210 µm FOV) | 1.2825 µm/px (≈ 328 µm FOV) |
 | Frame rate | 44.6 Hz | 22.8 Hz |
@@ -179,8 +182,8 @@ The full raw dataset — 22 animals, 167 imaging sessions, 336 raw directories, 
 can host. The per-animal inventory is tabulated in the
 [Scheib_2026 README](https://github.com/kerlin-lab/Scheib_2026#raw-data-inventory).
 
-For access to sessions beyond the two published here, contact newmanza@umn.edu. Transfers are
-arranged case by case depending on how much data is involved.
+For access to sessions beyond the two published here, contact newmanza@umn.edu. 
+Method of transfer will be arranged case by case depending on how much data is involved.
 
 ---
 
@@ -188,6 +191,9 @@ arranged case by case depending on how much data is involved.
 
 Nothing in this repository is modified from what the acquisition and registration pipelines wrote —
 these are the files as produced, only relocated into the tree above.
+
+Please note that a few of the trials are split between two files (ex. run1_00139_00001.tif and run1_00139_00002.tif)
+This was due to a triggering artifact but does not affect the data, those files can be merged into a single contiguous trial.
 
 SLeD refers to the lab-specific environment (Synapses, Learning and Dendrites). It is not required
 to read anything here; `tifffile` is sufficient.
